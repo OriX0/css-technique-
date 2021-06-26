@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>移动页面demo</title>
+  </head>
+  <style>
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    header {
+      position: relative;
+    }
+    #showMenu {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+    }
+    .log {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: aqua;
+    }
+    .navMenu {
+      display: none;
+    }
+    .navMenu.active {
+      display: flex;
+      justify-content: space-around;
+    }
+    .active li,
+    .navMenu2 li {
+      background-color: beige;
+      margin-left: 6px;
+      padding: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .navMenu2 {
+      display: none;
+    }
+    @media (min-width: 451px) {
+      #showMenu {
+        display: none;
+      }
+      header {
+        display: flex;
+        align-items: center;
+      }
+      .navMenu.active {
+        display: none;
+      }
+      .navMenu2 {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <!-- mobile first -->
+      <div class="log"></div>
+      <nav>
+        <button id="showMenu">showMenu</button>
+        <ul class="navMenu">
+          <li><a href="#">Menu1</a></li>
+          <li><a href="#">Menu2</a></li>
+          <li><a href="#">Menu3</a></li>
+          <li><a href="#">Menu4</a></li>
+          <li><a href="#">Menu5</a></li>
+        </ul>
+        <ul class="navMenu2">
+          <li><a href="#">Menu1</a></li>
+          <li><a href="#">Menu2</a></li>
+          <li><a href="#">Menu3</a></li>
+          <li><a href="#">Menu4</a></li>
+          <li><a href="#">Menu5</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+  <script>
+    const showMenuBtn = document.getElementById('showMenu');
+    const navMenu = document.getElementsByClassName('navMenu')[0];
+    showMenuBtn.onclick = function () {
+      navMenu.classList.toggle('active');
+    };
+  </script>
+</html>

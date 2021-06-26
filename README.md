@@ -6,6 +6,37 @@
 2. 记录工作中常用的布局套路
 3. 总结对应问题的调试方法
 
+### 移动端布局
+
+1. 移动端交互中的不同
+
+   1. 没有hover事件
+   2. 有touch事件
+   3. 没有resize
+   4. 没有滚动条  （移动端看到的滚动条都是定位器 而非滚动条）
+
+2. 使用media query  
+
+3. 隐藏元素实现多端的变化
+
+4. 手机端需要加一个 meta `<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>`
+
+5. 对于设计稿的像素与实际像素
+
+   1. css像素 =设计稿中的像素值/像素比
+
+   2. 设置meta中的标签为  1/像素比
+
+      ```js
+      var scale = 1 / window.devicePixelRatio;
+      // 计算像素比
+      
+      document.querySelector('meta[name="viewport"]').setAttribute('content','width=device-width,initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+      // 生成meta头
+      ```
+
+      
+
 ### 堆叠顺序
 
 #### 调试技巧
