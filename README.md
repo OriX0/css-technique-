@@ -17,11 +17,13 @@
 
 2. 使用media query  
 
-3. 隐藏元素实现多端的变化
+3. 干掉宽度 设置为auto
 
-4. 手机端需要加一个 meta `<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>`
+4. 隐藏元素实现多端的变化
 
-5. 对于设计稿的像素与实际像素
+5. 手机端需要加一个 meta `<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>`
+
+6. 对于设计稿的像素与实际像素
 
    1. css像素 =设计稿中的像素值/像素比
 
@@ -35,7 +37,73 @@
       // 生成meta头
       ```
 
-      
+
+
+
+### 布局套路
+
+#### 原则
+
+- 不到万不得已，不要写死width和height
+
+- 尽量用高级语法 如calc 、flex
+
+- 如果是IE ,就全部写死
+
+#### Float布局 兼容 IE8 
+
+##### 基本操作 
+
+- 子元素 float
+
+- 父元素 清除浮动 clearfix 
+  - 需要兼容IE8以下 除去`clearfix::after`外需要加上`.clearfix { zoom: 1;}`
+
+##### 常见布局套路
+
+###### 左右自由布局  
+
+父清除浮动 两个子元素浮动
+
+###### 平均布局
+
+问题：   由于左右margin 导致一行放不下原来指定的盒子个数
+
+- 解决方案
+
+  - **非IE**
+
+    - 一行需要X个盒子
+
+    ```css
+    子元素:nth-child(xn):{margin-right:0}
+    
+    子元素:nth-child(xn+1):{margin-left:0}
+    ```
+
+  - **IE**
+
+    1. 变量 子元素设置margin 为 **N**px
+    2. 增加一个div（wrapper） 包裹 原来的子元素
+    3. wrapper设置 `margin.wrapper {margin: 0 -Npx 0 -Npx; }`
+
+    
+
+#### Flex 布局 不兼容IE
+
+##### 套路
+
+###### 平均布局 
+
+- 和IE float差不多解决方案
+  - 变量 子元素设置margin 为 **N**px
+  - 增加一个div（wrapper） 包裹 原来的子元素
+  - wrapper 设置flex和换行
+  - wrapper设置 `margin.wrapper {margin: 0 -Npx 0 -Npx; }`
+
+
+
+
 
 ### 堆叠顺序
 

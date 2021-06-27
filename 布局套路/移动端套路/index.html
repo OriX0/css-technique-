@@ -36,8 +36,8 @@
       display: flex;
       justify-content: space-around;
     }
-    .active li,
-    .navMenu2 li {
+
+    .active li {
       background-color: beige;
       margin-left: 6px;
       padding: 4px;
@@ -63,10 +63,60 @@
       .navMenu.active {
         display: none;
       }
+      .navMenu2 li {
+        background-color: beige;
+        margin-left: 6px;
+        padding: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
       .navMenu2 {
         display: flex;
         justify-content: space-between;
       }
+      .banner {
+        width: 800px;
+        height: 300px;
+        background-color: #888;
+        margin: 10px auto 0;
+      }
+      .pictures {
+        width: 800px;
+        margin: 20px auto 0;
+      }
+      .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -4px 0 -4px;
+      }
+      .picture {
+        width: calc(25% - 8px);
+        height: 194px;
+        margin: 4px;
+        background-color: #ccc;
+      }
+    }
+    .banner {
+      width: auto;
+      height: 300px;
+      background-color: #888;
+      margin: 10px auto 0;
+    }
+    .pictures {
+      width: auto;
+      margin: 20px auto 0;
+      overflow: hidden;
+    }
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -4px 0 -4px;
+    }
+    .picture {
+      width: calc(25% - 8px);
+      height: 194px;
+      margin: 4px;
+      background-color: #ccc;
     }
   </style>
   <body>
@@ -91,6 +141,21 @@
         </ul>
       </nav>
     </header>
+    <main>
+      <div class="banner"></div>
+      <div class="pictures">
+        <div class="wrapper">
+          <div class="picture">图片1</div>
+          <div class="picture">图片2</div>
+          <div class="picture">图片3</div>
+          <div class="picture">图片4</div>
+          <div class="picture">图片5</div>
+          <div class="picture">图片6</div>
+          <div class="picture">图片7</div>
+          <div class="picture">图片8</div>
+        </div>
+      </div>
+    </main>
   </body>
   <script>
     const showMenuBtn = document.getElementById('showMenu');

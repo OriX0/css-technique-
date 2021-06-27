@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    .parent {
+      margin: 0 auto;
+      background-color: #ddd;
+    }
+    .child:nth-child(1) {
+      float: left;
+    }
+    .child:nth-child(2) {
+      float: right;
+    }
+    .logo {
+      width: 100px;
+      background-color: #333;
+      color: white;
+      height: 36px;
+      line-height: 36px;
+    }
+
+    .clearfix::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    nav {
+      background-color: #ccc;
+    }
+    .nav-items {
+      float: left;
+      line-height: 24px;
+      padding: 6px 0;
+      margin-left: 15px;
+    }
+  </style>
+  <body>
+    <header class="parent clearfix">
+      <div class="child logo">logo</div>
+      <div class="child">
+        <nav class="clearfix">
+          <div class="nav-items">导航1</div>
+          <div class="nav-items">导航2</div>
+          <div class="nav-items">导航3</div>
+          <div class="nav-items">导航4</div>
+          <div class="nav-items">导航5</div>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>
